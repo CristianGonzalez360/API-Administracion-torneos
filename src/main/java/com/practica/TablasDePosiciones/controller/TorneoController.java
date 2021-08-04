@@ -34,7 +34,7 @@ public class TorneoController {
 	}
 	
 	@GetMapping("/{id}")
-	public Torneo getTorneo(@PathVariable("id") int id) {
+	public TorneoDTO getTorneo(@PathVariable("id") int id) {
 		return this.servicios.read(id);
 	}
 }

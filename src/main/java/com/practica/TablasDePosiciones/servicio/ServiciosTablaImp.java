@@ -1,6 +1,7 @@
 package com.practica.TablasDePosiciones.servicio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class ServiciosTablaImp implements ServiciosTabla {
 			tabla.ordenar();
 			ret.add(tabla);
 		}
-		
+		Collections.sort(ret);
 		return ret;
 	}
 

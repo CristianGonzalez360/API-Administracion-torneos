@@ -1,6 +1,7 @@
 package com.practica.TablasDePosiciones.servicio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,6 +55,8 @@ public class ServiciosEquipoImp implements ServiciosEquipo {
 	@Override
 	public List<Equipo> getEquipoByCategoria(int idCategoria) {
 		Optional<Categoria> cat = this.catDao.findById(idCategoria);
-		return this.dao.findByCategoria(cat.get());
+		List<Equipo> ret = this.dao.findByCategoria(cat.get());
+		Collections.sort(ret);
+		return ret;
 	}
 }

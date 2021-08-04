@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.practica.TablasDePosiciones.entity.Grupo;
 
-public class Tabla {
+public class Tabla implements Comparable<Tabla>{
 	
 	private int idGrupo; 
 	private String nombreGrupo;
@@ -46,6 +46,11 @@ public class Tabla {
 
 	public void setIdGrupo(int idGrupo) {
 		this.idGrupo = idGrupo;
+	}
+
+	@Override
+	public int compareTo(Tabla o) {
+		return this.nombreGrupo.compareTo(o.getNombreGrupo());
 	}
 	
 }

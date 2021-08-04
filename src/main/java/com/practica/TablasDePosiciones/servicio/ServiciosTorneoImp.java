@@ -32,9 +32,9 @@ public class ServiciosTorneoImp implements ServiciosTorneo {
 	}
 
 	@Override
-	public Torneo read(int id) {
+	public TorneoDTO read(int id) {
 		Optional<Torneo> ret = this.dao.findById(id);
-		return ret.get();
+		return new TorneoDTO(ret.get());
 	}
 
 	@Override

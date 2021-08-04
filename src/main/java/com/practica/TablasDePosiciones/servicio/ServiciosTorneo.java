@@ -11,7 +11,7 @@ public interface ServiciosTorneo {
 
 	Torneo create(Torneo torneo);
 	
-	Torneo read(int id);
+	TorneoDTO read(int id);
 	
 	Torneo update(Torneo torneo);
 	
