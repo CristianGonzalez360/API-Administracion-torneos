@@ -35,4 +35,9 @@ public class ServiciosPartidoImp implements ServiciosPartido {
 		return this.dao.save(partido);
 	}
 
+	@Override
+	public void delete(int id) {
+		this.dao.deleteById(id);
+	}
+
 }

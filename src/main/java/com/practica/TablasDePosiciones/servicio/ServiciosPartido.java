@@ -11,4 +11,6 @@ public interface ServiciosPartido {
 	Partido create(Partido partido);
 
 	Partido update(Partido partido);
+	
+	void delete(int id);
 }
