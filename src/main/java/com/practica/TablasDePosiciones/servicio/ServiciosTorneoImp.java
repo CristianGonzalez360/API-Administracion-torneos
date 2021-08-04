@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.practica.TablasDePosiciones.dao.TorneoDao;
+import com.practica.TablasDePosiciones.dto.TorneoDTO;
 import com.practica.TablasDePosiciones.entity.Torneo;
 
 @Service
@@ -17,10 +18,10 @@ public class ServiciosTorneoImp implements ServiciosTorneo {
 	private TorneoDao dao;
 	
 	@Override
-	public List<Torneo> getAll() {
-		List<Torneo> ret = new ArrayList<>();
+	public List<TorneoDTO> getAll() {
+		List<TorneoDTO> ret = new ArrayList<>();
 		for(Torneo torneo:this.dao.findAll()) {
-			ret.add(torneo);
+			ret.add(new TorneoDTO(torneo));
 		}
 		return ret;
 	}

@@ -2,11 +2,12 @@ package com.practica.TablasDePosiciones.servicio;
 
 import java.util.List;
 
+import com.practica.TablasDePosiciones.dto.TorneoDTO;
 import com.practica.TablasDePosiciones.entity.Torneo;
 
 public interface ServiciosTorneo {
 
-	List<Torneo> getAll();
+	List<TorneoDTO> getAll();
 
 	Torneo create(Torneo torneo);
 	

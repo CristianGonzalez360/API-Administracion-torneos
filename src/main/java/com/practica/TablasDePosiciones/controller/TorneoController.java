@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.practica.TablasDePosiciones.dto.TorneoDTO;
 import com.practica.TablasDePosiciones.entity.Torneo;
 import com.practica.TablasDePosiciones.servicio.ServiciosTorneo;
 
@@ -23,7 +24,7 @@ public class TorneoController {
 	private ServiciosTorneo servicios;
 			
 	@GetMapping
-	public List<Torneo> all(){
+	public List<TorneoDTO> all(){
 		return this.servicios.getAll();
 	}
 			

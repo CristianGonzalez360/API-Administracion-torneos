@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "grupo")
-public class Grupo implements Comparable<Grupo> {
+public class Grupo{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,9 +56,4 @@ public class Grupo implements Comparable<Grupo> {
 		return "Grupo [id=" + id + ", nombre=" + nombre + ", equipos=" + equipos + "]";
 	}
 
-	@Override
-	public int compareTo(Grupo o) {
-		return this.nombre.compareTo(o.nombre);
-	}
-	
 }
