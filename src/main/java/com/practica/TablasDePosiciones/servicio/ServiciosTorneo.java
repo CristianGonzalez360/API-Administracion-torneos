@@ -2,6 +2,7 @@ package com.practica.TablasDePosiciones.servicio;
 
 import java.util.List;
 
+import com.practica.TablasDePosiciones.dto.HistorialTorneoDTO;
 import com.practica.TablasDePosiciones.dto.TorneoDTO;
 import com.practica.TablasDePosiciones.entity.Torneo;
 
@@ -16,4 +17,6 @@ public interface ServiciosTorneo {
 	Torneo update(Torneo torneo);
 	
 	void delete(int id);
+	
+	HistorialTorneoDTO getHistorial(int idEquipo, int idTorneo);
 }

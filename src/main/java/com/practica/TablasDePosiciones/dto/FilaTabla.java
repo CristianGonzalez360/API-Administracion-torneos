@@ -13,6 +13,7 @@ public class FilaTabla implements Comparable<FilaTabla> {
 	private int golesAFavor;
 	private int golesEnContra;
 	private int diferenciaGol;
+	private int posicion;
 
 	public FilaTabla(Equipo equipo) {
 		this.nombre = equipo.getNombre();
@@ -130,6 +131,14 @@ public class FilaTabla implements Comparable<FilaTabla> {
 		this.golesAFavor += golesAFavor;
 		this.golesEnContra += golesEnContra;
 		this.diferenciaGol = this.golesAFavor-this.golesEnContra;
+	}
+
+	public int getPosicion() {
+		return posicion;
+	}
+
+	public void setPosicion(int posicion) {
+		this.posicion = posicion;
 	}
 
 }

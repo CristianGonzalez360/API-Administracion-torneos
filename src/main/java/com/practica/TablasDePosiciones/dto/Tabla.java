@@ -18,12 +18,15 @@ public class Tabla implements Comparable<Tabla>{
 		this.filas = new ArrayList<>();
 	}
 	
-	public void addEquipo(FilaTabla equipo) {
+	public void addFila(FilaTabla equipo) {
 		this.filas.add(equipo);
 	}
 	
 	public void ordenar() {
 		Collections.sort(filas);
+		for(int i=0;i<filas.size();i++) {
+			filas.get(i).setPosicion(i+1);
+		}
 	}
 	
 	public List<FilaTabla> getFilas() {

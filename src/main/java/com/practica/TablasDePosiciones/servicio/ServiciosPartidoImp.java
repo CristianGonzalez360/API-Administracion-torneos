@@ -1,10 +1,10 @@
 package com.practica.TablasDePosiciones.servicio;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.practica.TablasDePosiciones.dao.EquipoDao;
 import com.practica.TablasDePosiciones.dao.FechaDao;
 import com.practica.TablasDePosiciones.dao.PartidoDao;
 import com.practica.TablasDePosiciones.entity.Fecha;
@@ -18,6 +18,8 @@ public class ServiciosPartidoImp implements ServiciosPartido {
 	
 	@Autowired
 	private FechaDao fechaDao;
+	
+	@Autowired EquipoDao equipoDao;
 	
 	@Override
 	public List<Partido> getPartidoByFecha(int idFecha) {
@@ -39,5 +41,4 @@ public class ServiciosPartidoImp implements ServiciosPartido {
 	public void delete(int id) {
 		this.dao.deleteById(id);
 	}
-
 }

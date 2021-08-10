@@ -39,12 +39,7 @@ public class ServiciosTablaImp implements ServiciosTabla {
 		List<Partido> partidos = getPartidosByTorneo(torneo);
 		
 		for (Grupo grupo : torneo.getGrupos()) {
-			Tabla tabla = new Tabla(grupo);
-			for (Equipo equipo : grupo.getEquipos()) {
-				tabla.addEquipo(makeEquipoTabla(equipo, partidos));
-			}
-			tabla.ordenar();
-			ret.add(tabla);
+			ret.add(tablaPorGrupo(grupo, partidos));
 		}
 		Collections.sort(ret);
 		return ret;
@@ -57,8 +52,17 @@ public class ServiciosTablaImp implements ServiciosTabla {
 		}
 		return ret;
 	}
+	
+	private Tabla tablaPorGrupo(Grupo grupo, List<Partido> partidos) {
+		Tabla ret = new Tabla(grupo);
+		for (Equipo equipo : grupo.getEquipos()) {
+			ret.addFila(calcularTotales(equipo, partidos));
+		}
+		ret.ordenar();
+		return ret;
+	}
 
-	private FilaTabla makeEquipoTabla(Equipo equipo, List<Partido> partidos) {
+	public FilaTabla calcularTotales(Equipo equipo, List<Partido> partidos) {
 		FilaTabla ret = new FilaTabla(equipo);
 		for (Partido partido : partidos) {
 			if (partido.gano(equipo)) {

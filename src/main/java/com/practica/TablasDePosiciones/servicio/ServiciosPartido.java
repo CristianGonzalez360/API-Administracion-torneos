@@ -13,4 +13,5 @@ public interface ServiciosPartido {
 	Partido update(Partido partido);
 	
 	void delete(int id);
+
 }
