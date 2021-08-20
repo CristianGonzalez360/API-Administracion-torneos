@@ -13,6 +13,7 @@ import com.practica.TablasDePosiciones.dao.TorneoDao;
 import com.practica.TablasDePosiciones.dto.HistorialTorneoDTO;
 import com.practica.TablasDePosiciones.dto.TorneoDTO;
 import com.practica.TablasDePosiciones.entity.Equipo;
+import com.practica.TablasDePosiciones.entity.EstadoPartido;
 import com.practica.TablasDePosiciones.entity.Partido;
 import com.practica.TablasDePosiciones.entity.Torneo;
 
@@ -71,7 +72,7 @@ public class ServiciosTorneoImp implements ServiciosTorneo {
 		ret.setEquipo(equipo);
 		ret.setNombreTorneo(torneo.getNombre());
 		ret.setPartidos(partidos);
-		ret.setTotales(this.serviciosTabla.calcularTotales(equipo, partidos));
+		ret.setTotales(this.serviciosTabla.calcularTotales(equipo, this.partidoDao.findByEquipoAndTorneoAndEstado(equipo, torneo, EstadoPartido.JUGADO)));
 		return ret;
 	}
 

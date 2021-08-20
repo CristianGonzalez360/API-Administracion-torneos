@@ -39,6 +39,9 @@ public class Partido {
 	@ManyToOne
 	@JoinColumn(name = "fecha")
 	private Fecha fecha;
+	
+	@Column(name = "estado", length = 15)
+	private EstadoPartido estado;
 
 	public Partido() {
 
@@ -98,6 +101,14 @@ public class Partido {
 
 	public void setFecha(Fecha fecha) {
 		this.fecha = fecha;
+	}
+
+	public EstadoPartido getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EstadoPartido estado) {
+		this.estado = estado;
 	}
 
 	@Override

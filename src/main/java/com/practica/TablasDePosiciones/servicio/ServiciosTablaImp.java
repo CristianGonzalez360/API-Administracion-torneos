@@ -13,6 +13,7 @@ import com.practica.TablasDePosiciones.dao.TorneoDao;
 import com.practica.TablasDePosiciones.dto.FilaTabla;
 import com.practica.TablasDePosiciones.dto.Tabla;
 import com.practica.TablasDePosiciones.entity.Equipo;
+import com.practica.TablasDePosiciones.entity.EstadoPartido;
 import com.practica.TablasDePosiciones.entity.Fecha;
 import com.practica.TablasDePosiciones.entity.Grupo;
 import com.practica.TablasDePosiciones.entity.Partido;
@@ -48,7 +49,7 @@ public class ServiciosTablaImp implements ServiciosTabla {
 	private List<Partido> getPartidosByTorneo(Torneo torneo) {
 		List<Partido> ret = new ArrayList<>();
 		for (Fecha fecha : fechaDao.findByTorneo(torneo)) {
-			ret.addAll(this.partidoDao.findByFecha(fecha));
+			ret.addAll(this.partidoDao.findByFechaAndEstado(fecha,EstadoPartido.JUGADO));
 		}
 		return ret;
 	}

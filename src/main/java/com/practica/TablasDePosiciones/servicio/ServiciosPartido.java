@@ -14,4 +14,6 @@ public interface ServiciosPartido {
 	
 	void delete(int id);
 
+	List<String> getEstadosPartidos();
+
 }

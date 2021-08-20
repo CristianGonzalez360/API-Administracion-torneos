@@ -43,4 +43,9 @@ public class PartidoController {
 	public void delete(@PathVariable("id") int id) {
 		this.servicios.delete(id);
 	}
+	
+	@GetMapping("/estados")
+	public List<String> getEstadosPartido(){
+		return this.servicios.getEstadosPartidos();
+	}
 }

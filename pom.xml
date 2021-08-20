@@ -14,8 +14,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TablasDePosiciones</name>
 	<description>Practica Spring</description>
+	<packaging>war</packaging>
+	
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15</java.version>
+		<start-class>com.practica.TablasDePosiciones.TablasDePosicionesApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -45,17 +48,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
@@ -71,6 +69,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.practica.TablasDePosiciones.TablasDePosicionesApplication</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

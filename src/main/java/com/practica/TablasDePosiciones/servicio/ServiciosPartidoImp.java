@@ -1,5 +1,6 @@
 package com.practica.TablasDePosiciones.servicio;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.practica.TablasDePosiciones.dao.EquipoDao;
 import com.practica.TablasDePosiciones.dao.FechaDao;
 import com.practica.TablasDePosiciones.dao.PartidoDao;
+import com.practica.TablasDePosiciones.entity.EstadoPartido;
 import com.practica.TablasDePosiciones.entity.Fecha;
 import com.practica.TablasDePosiciones.entity.Partido;
 
@@ -40,5 +42,14 @@ public class ServiciosPartidoImp implements ServiciosPartido {
 	@Override
 	public void delete(int id) {
 		this.dao.deleteById(id);
+	}
+
+	@Override
+	public List<String> getEstadosPartidos() {
+		List<String> ret = new ArrayList<>();
+		for(EstadoPartido estado : EstadoPartido.values()) {
+			ret.add(estado.name());
+		}
+		return ret;
 	}
 }
