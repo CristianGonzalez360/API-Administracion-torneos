@@ -51,6 +51,5 @@ public class GrupoDTO implements Comparable<GrupoDTO> {
 	public int compareTo(GrupoDTO o) {
 		return this.nombre.compareTo(o.nombre);
 	}
-	
-	
+
 }

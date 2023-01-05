@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,5 +44,11 @@ public class TorneoController {
 	public HistorialTorneoDTO getPartidosByEquipoAndTorneo(@PathVariable("idEquipo") int idEquipo,
 			@PathVariable("idTorneo") int idTorneo) {
 		return this.servicios.getHistorial(idEquipo, idTorneo);
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deleteTorneo(@PathVariable("id") int id){
+		System.out.println("borrando Torneo: " + id);
+		this.servicios.delete(id);
 	}
 }

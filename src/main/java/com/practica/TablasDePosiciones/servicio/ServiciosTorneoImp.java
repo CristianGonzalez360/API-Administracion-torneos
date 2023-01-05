@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.practica.TablasDePosiciones.dao.EquipoDao;
+import com.practica.TablasDePosiciones.dao.FechaDao;
 import com.practica.TablasDePosiciones.dao.PartidoDao;
 import com.practica.TablasDePosiciones.dao.TorneoDao;
 import com.practica.TablasDePosiciones.dto.HistorialTorneoDTO;
 import com.practica.TablasDePosiciones.dto.TorneoDTO;
 import com.practica.TablasDePosiciones.entity.Equipo;
 import com.practica.TablasDePosiciones.entity.EstadoPartido;
+import com.practica.TablasDePosiciones.entity.Fecha;
 import com.practica.TablasDePosiciones.entity.Partido;
 import com.practica.TablasDePosiciones.entity.Torneo;
 
@@ -28,6 +30,9 @@ public class ServiciosTorneoImp implements ServiciosTorneo {
 	
 	@Autowired
 	private PartidoDao partidoDao;
+	
+	@Autowired
+	private FechaDao fechaDao;
 	
 	@Autowired
 	private ServiciosTabla serviciosTabla;
@@ -60,6 +65,12 @@ public class ServiciosTorneoImp implements ServiciosTorneo {
 	@Override
 	public void delete(int id) {
 		Torneo torneo = this.dao.findById(id).get();
+		for(Fecha fecha : this.fechaDao.findByTorneo(torneo)){
+			for(Partido partido : this.partidoDao.findByFecha(fecha)) {
+				this.partidoDao.delete(partido);
+			}
+			this.fechaDao.delete(fecha);
+		}
 		this.dao.delete(torneo);
 	}
 

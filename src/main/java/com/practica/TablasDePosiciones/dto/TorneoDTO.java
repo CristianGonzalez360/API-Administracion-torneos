@@ -60,6 +60,7 @@ public class TorneoDTO {
 	}
 
 	public void setGrupos(ArrayList<GrupoDTO> grupos) {
+		
 		this.grupos = grupos;
 	}
 
